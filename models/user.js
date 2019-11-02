@@ -20,12 +20,12 @@ mongoose.Promise = global.Promise;
 var handle = setInterval(connection,3000) 
 
 function connection() {
-	mongoose.connect(`mongodb://${config.dbuser}:${config.dbpassword}@${config.db}`,(err) => {
-	if(!err){
-		console.log("Successfully got connection!!")
-		clearImmediate(handle)
-	}else{
+	mongoose.connect(`mongodb://${config.dbuser}:${config.dbpassword}@${config.db}`,{useNewUrlParser: true},(err) => {
+	if(err){
 		console.log("retring to connect database")
+	}else{
+		clearInterval(handle)
+		console.log("Successfully got connection!!")
 	}
 });
 }

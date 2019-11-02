@@ -121,7 +121,7 @@ module.exports.authenticateSignupInit = (email) =>
 			if(users.length > 0){
 				return reject({ status : 409 , message : 'User is already registered!'})
 			}
-			console.log("hello")
+
 			const random = randomstring.generate(5);
 			const user = new signupUser({
 				email : email,
@@ -180,7 +180,7 @@ module.exports.authenticateSignupInit = (email) =>
 	});
 
 function removeUser(email) {
-	signupUser.remove({email:email},(err) => {
+	signupUser.deleteOne({email:email},(err) => {
 		if(err) {
 			console.log("Unable to remove user")
 		}

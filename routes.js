@@ -123,6 +123,4 @@ module.exports = (router) => {
 			return false;
 		}
 	}
-
-
 }
