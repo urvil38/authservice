@@ -1,0 +1,10 @@
+node_modules
+*.gem
+*.rbc
+.vscode
+.idea
+.DS_Store
+
+config/
+kubernetes/
+package-lock.json
